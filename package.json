@@ -8,7 +8,8 @@
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
     "react-scripts": "3.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "storybook-chromatic": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,7 +17,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "CHROMATIC_APP_CODE=2y0h97mudpj chromatic test"
   },
   "eslintConfig": {
     "extends": "react-app"

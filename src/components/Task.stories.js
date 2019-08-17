@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean, number, object } from '@storybook/addon-knobs';
+import { withKnobs, object } from '@storybook/addon-knobs';
 import Task from './Task';
 
 const stories = storiesOf('Storybook Knobs', module);

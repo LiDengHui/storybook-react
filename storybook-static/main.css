@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,800');
+@import url(https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,800);
 html,
 body {
   margin: 0;
@@ -154,8 +154,6 @@ input[type="submit"] {
 }
 input[type="search"] {
   -webkit-appearance: textfield;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-decoration {
@@ -165,12 +163,33 @@ textarea {
   overflow: auto;
   vertical-align: top;
 }
-@keyframes spin {
+@-webkit-keyframes spin {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 @keyframes glow {
@@ -187,7 +206,9 @@ textarea {
   word-break: break-all;
   -ms-word-break: break-all;
   word-break: break-word;
-  hyphens: auto;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 .type-light {
   font-family: 'Nunito Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -295,6 +316,30 @@ textarea {
   color: #333;
   outline: none;
 }
+input[type="text"] ::-webkit-input-placeholder,
+input[type="email"] ::-webkit-input-placeholder,
+input[type="password"] ::-webkit-input-placeholder,
+textarea ::-webkit-input-placeholder {
+  color: #778b91;
+}
+input[type="text"] ::-moz-placeholder,
+input[type="email"] ::-moz-placeholder,
+input[type="password"] ::-moz-placeholder,
+textarea ::-moz-placeholder {
+  color: #778b91;
+}
+input[type="text"] :-ms-input-placeholder,
+input[type="email"] :-ms-input-placeholder,
+input[type="password"] :-ms-input-placeholder,
+textarea :-ms-input-placeholder {
+  color: #778b91;
+}
+input[type="text"] ::-ms-input-placeholder,
+input[type="email"] ::-ms-input-placeholder,
+input[type="password"] ::-ms-input-placeholder,
+textarea ::-ms-input-placeholder {
+  color: #778b91;
+}
 input[type="text"] ::placeholder,
 input[type="email"] ::placeholder,
 input[type="password"] ::placeholder,
@@ -331,7 +376,8 @@ input:-webkit-autofill {
   left: 50%;
   width: 0.85em;
   height: 0.85em;
-  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
   background: transparent;
   box-shadow: #2cc5d2 0 0 0 1px inset;
   content: '';
@@ -351,6 +397,8 @@ input:-webkit-autofill {
   speak: none;
   font-style: normal;
   font-weight: normal;
+  -webkit-font-feature-settings: normal;
+          font-feature-settings: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -383,8 +431,10 @@ input:-webkit-autofill {
 }
 .input-symbol [class^="icon-"],
 .input-symbol [class*=" icon-"] {
+  -webkit-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
-  transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
   background: transparent;
   color: #aaa;
   font-size: 1em;
@@ -406,6 +456,8 @@ input:-webkit-autofill {
   speak: none;
   font-style: normal;
   font-weight: normal;
+  -webkit-font-feature-settings: normal;
+          font-feature-settings: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -801,6 +853,7 @@ input:-webkit-autofill {
   content: "\e670";
 }
 a {
+  -webkit-transition: all 200ms ease-in;
   transition: all 200ms ease-in;
   color: #5db9ff;
   cursor: pointer;
@@ -829,7 +882,8 @@ a:focus {
 }
 .list-heading .icon-sync {
   opacity: 1;
-  animation: spin 2s infinite linear;
+  -webkit-animation: spin 2s infinite linear;
+          animation: spin 2s infinite linear;
   display: inline-block;
   margin-right: 4px;
 }
@@ -841,13 +895,14 @@ a:focus {
   height: 3rem;
   width: 100%;
   background: white;
+  -webkit-transition: all ease-out 150ms;
   transition: all ease-out 150ms;
 }
 .list-item .title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex: 1;
+  flex: 1 1;
 }
 .list-item input[type="text"] {
   background: transparent;
@@ -857,6 +912,7 @@ a:focus {
   cursor: text;
 }
 .list-item .actions {
+  -webkit-transition: all 200ms ease-in;
   transition: all 200ms ease-in;
   padding-right: 20px;
 }
@@ -885,6 +941,8 @@ a:focus {
   color: #aaa;
 }
 .list-item:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e5f9f7), to(#f0fffd));
+  background-image: -webkit-linear-gradient(top, #e5f9f7 0%, #f0fffd 100%);
   background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);
 }
 .list-item:hover .checkbox {
@@ -911,7 +969,8 @@ a:focus {
 }
 .loading-item .glow-checkbox,
 .loading-item .glow-text span {
-  animation: glow 1.5s ease-in-out infinite;
+  -webkit-animation: glow 1.5s ease-in-out infinite;
+          animation: glow 1.5s ease-in-out infinite;
   background: #eee;
   color: transparent;
   cursor: progress;
@@ -942,7 +1001,8 @@ a:focus {
   left: 0;
   width: auto;
   height: auto;
-  transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+          transform: translate3d(0, -50%, 0);
   text-align: center;
 }
 .wrapper-message [class^="icon-"],
@@ -996,3 +1056,5 @@ a:focus {
   vertical-align: top;
   max-width: 100%;
 }
+
+/*# sourceMappingURL=main.css.map*/

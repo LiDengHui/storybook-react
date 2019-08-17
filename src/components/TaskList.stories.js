@@ -18,9 +18,15 @@ export const withPinnedTasks = [
   { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
 ];
 
+export const withArchivedTasks = [
+  ...defaultTasks.slice(0,5),
+  {id: '6', title: 'Task6 (archided)', state: 'TASK_ARCHIVED'},
+]
+
 storiesOf('TaskList', module)
   .addDecorator(story => <div style={{ padding: '3rem' }}>{story()}</div>)
   .add('default', () => <PureTaskList tasks={defaultTasks} {...actions} />)
   .add('withPinnedTasks', () => <PureTaskList tasks={withPinnedTasks} {...actions} />)
+  .add('withArchivedTasks', () => <PureTaskList tasks={withArchivedTasks} {...actions} />)
   .add('loading', () => <PureTaskList loading tasks={[]} {...actions} />)
   .add('empty', () => <PureTaskList tasks={[]} {...actions} />);

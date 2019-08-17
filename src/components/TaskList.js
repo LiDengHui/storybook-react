@@ -69,9 +69,9 @@ PureTaskList.defaultProps = {
 };
 
 export default connect(
-  ({ tasks }) => ({
-    tasks: tasks.filter(t => t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'),
-  }),
+  ({ tasks }) => {
+    return { tasks };
+  },
   dispatch => ({
     onArchiveTask: id => dispatch(archiveTask(id)),
     onPinTask: id => dispatch(pinTask(id)),
